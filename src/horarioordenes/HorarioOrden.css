@@ -1,0 +1,26 @@
+.singular_orden {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: blanchedalmond;
+  border: 2px solid;
+}
+.singular_orden ul {
+  display: flex;
+  margin: 10px;
+}
+.plural_orden {
+  border: 1px solid;
+  background-color: brown;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.plural_orden li {
+  list-style: none;
+}
+.dias-de-ordenes {
+  display: flex;
+  justify-content: center;
+}

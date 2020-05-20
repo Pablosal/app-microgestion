@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css?family=Abel");
+.carta {
+  background: #fceeb5;
+  font-family: Abel, Arial, Verdana, sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+}
+.carta_seccion_columna_one {
+  display: flex;
+  justify-content: space-evenly;
+}
+.carta-img-side {
+  border-radius: 16px;
+  background-color: brown;
+  height: 100%;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carta-body {
+  width: 75%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.carta-titulo {
+  font-size: 4rem;
+}
+.control {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.control .fas {
+  margin: 0.5rem;
+}
+.carta_seccion_columna_two {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.circle {
+  border-radius: 50%;
+}
