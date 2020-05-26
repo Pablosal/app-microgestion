@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 const Navbar = () => {
   let par = useLocation();
   console.log(par.pathname);
@@ -21,43 +21,33 @@ const Navbar = () => {
         color: "#1E3264",
       }}
     >
-      <Link className="navbar-brand" to="/" style={{ color: "#1E3264" }}>
+      <NavLink className="navbar-brand" to="/" style={{ color: "#1E3264" }}>
         Inicio
-      </Link>
+      </NavLink>
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul
           className="navbar-nav mr-auto"
           style={{ backgroundColor: backgroundChange() }}
         >
-          <li className="nav-item active">
-            <Link
-              className="nav-link"
-              to="/ordenes"
-              style={{ color: "#1E3264" }}
-            >
-              Ordenes
-            </Link>
-          </li>
-
           <li className="nav-item">
-            <Link
+            <NavLink
               style={{ color: "#1E3264" }}
               className="nav-link"
               to="/horarioOrden"
             >
               Orden Horario
-            </Link>
+            </NavLink>
           </li>
 
           <li className="nav-item">
-            <Link
+            <NavLink
               style={{ color: "#1E3264" }}
               className="nav-link "
               to="/clientes"
             >
               Clientes
-            </Link>
+            </NavLink>
           </li>
         </ul>
         <form className="form-inline my-2 my-lg-0"></form>

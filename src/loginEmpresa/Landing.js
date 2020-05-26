@@ -3,6 +3,8 @@ import firebase from "../firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import { useDispatch } from "react-redux";
 import { logearse, getLog, insertData } from "../clientesempresa/EmpresaAction";
+import MiniLogin from "./MiniLogin";
+import Orden from "../formsempresa/Orden";
 const Landing = () => {
   const dispatch = useDispatch();
   const [signed, setSigned] = useState(false);
@@ -14,14 +16,26 @@ const Landing = () => {
     },
   };
   useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user.refreshToken === null) return;
-      setSigned(!!user);
-      dispatch(logearse(user.refreshToken));
-      dispatch(insertData(firebase.auth().currentUser.displayName));
-      dispatch(getLog());
-    });
+    const unsubscribre = onAuthStateChange();
+    return () => {
+      unsubscribre();
+    };
   }, []);
+  function onAuthStateChange() {
+    firebase.auth().onAuthStateChanged((user) => {
+      setSigned(!!user);
+      console.log(user.refreshToken);
+      if (!user.refreshToken) return;
+      dispatch(logearse(user.refreshToken));
+      dispatch(
+        insertData({
+          nombre: firebase.auth().currentUser.displayName,
+          image: firebase.auth().currentUser.photoURL,
+        })
+      );
+      console.log(user);
+    });
+  }
   return (
     <>
       <section
@@ -36,27 +50,7 @@ const Landing = () => {
       >
         <div>
           {signed ? (
-            <>
-              <div
-                className="profile_mini_card"
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <img
-                  heigth="50px"
-                  width="50px"
-                  src={firebase.auth().currentUser.photoURL}
-                  alt=""
-                />
-                <h5>Bienvenid@ {firebase.auth().currentUser.displayName}</h5>
-                <button onClick={() => firebase.auth().signOut()}>
-                  Salir de la Sesion
-                </button>
-              </div>
-            </>
+            <Orden />
           ) : (
             <>
               {" "}

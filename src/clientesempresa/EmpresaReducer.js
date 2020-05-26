@@ -3,18 +3,6 @@ let initialState = {
   sesionIniciada: false,
   nombreEmpresa: "",
   horario: { start: 5, end: 15 },
-  instrumentaria: [
-    { nombre: "Coca-Cola", id: 12, precio: 1550, enCanasta: false },
-    { nombre: "Sprite", id: 13, precio: 1550, enCanasta: false },
-    { nombre: "Pepsi", id: 121, precio: 1550, enCanasta: false },
-    { nombre: "Cereal Sin gluten", id: 128, precio: 2390, enCanasta: false },
-    {
-      nombre: "Galletas de maiz horneadas",
-      id: 123,
-      precio: 1649,
-      enCanasta: false,
-    },
-  ],
 };
 export const EmpresaReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -37,7 +25,11 @@ export const EmpresaReducer = (state = initialState, action) => {
         sesionIniciada: false,
       };
     case ActionTypes.INSERT_DATA:
-      return { ...state, nombreEmpresa: action.payload };
+      return {
+        ...state,
+        nombreEmpresa: action.payload.nombre,
+        imagenEmpresa: action.payload.image,
+      };
     case ActionTypes.GET_SESION:
       console.log(state.sesionIniciada);
       console.log(state.nombreEmpresa);
