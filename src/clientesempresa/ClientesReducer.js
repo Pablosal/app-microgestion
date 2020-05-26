@@ -8,13 +8,7 @@ let initialState = {
       id: 1,
       direccion: "pinagua 890",
       telefono: 998074590,
-      insumos: ["perro", "caca", "gatos"],
-      completado: true,
-      ordenEnProceso: true,
-      precio: 150.0,
-      cantidadDeOrdenes: 0,
-      fechaEntrega: "2020-05-27",
-      horaEntrega: "12:30",
+
       destacado: false,
     },
     {
@@ -23,59 +17,61 @@ let initialState = {
       id: 2,
       direccion: "El gatornio 960",
       telefono: 874859635,
-      insumos: ["perro", "caca", "gatos"],
+    },
+    {
+      image: placeholder,
+      nombre: "Dominico Eliaz",
+      id: 1,
+      direccion: "pinagua 890",
+      telefono: 998074590,
+
+      destacado: false,
+    },
+    {
+      image: placeholder,
+      nombre: "Eliaz Figeroa",
+      id: 2,
+      direccion: "El gatornio 960",
+      telefono: 874859635,
+    },
+    {
+      image: placeholder,
+      nombre: "Dominico Eliaz",
+      id: 1,
+      direccion: "pinagua 890",
+      telefono: 998074590,
+
+      destacado: false,
+    },
+    {
+      image: placeholder,
+      nombre: "Eliaz Figeroa",
+      id: 2,
+      direccion: "El gatornio 960",
+      telefono: 874859635,
+    },
+  ],
+  ordenes: [
+    {
+      nombre: "Dominico Eliaz",
+      precio: 150.0,
+      cantidadDeOrdenes: 0,
+      ordenEnProceso: true,
+      fechaEntrega: "2020-05-25",
+      horaEntrega: "12:30",
+
+      completado: true,
+    },
+    {
+      nombre: "Eliaz Figeroa",
+
       completado: false,
       precio: 150.0,
       cantidadDeOrdenes: 0,
       destacado: false,
-      fechaEntrega: "2020-05-27",
+      fechaEntrega: "2020-05-25",
       ordenEnProceso: true,
       horaEntrega: "12:30",
-    },
-    {
-      image: placeholder,
-      nombre: "Benedicto 15",
-      id: 3,
-      direccion: "kalian 890",
-      telefono: 745823964,
-      insumos: ["perro", "caca", "gatos"],
-      completado: false,
-      precio: 150.0,
-      cantidadDeOrdenes: 0,
-      destacado: false,
-      fechaEntrega: "27-05-2020",
-      ordenEnProceso: true,
-      horaEntrega: "09:30",
-    },
-    {
-      image: placeholder,
-      nombre: "Pulpo rodrigez",
-      id: 4,
-      direccion: "zenedias 890",
-      telefono: 725934813,
-      insumos: ["perro", "caca", "gatos"],
-      completado: false,
-      precio: 150.0,
-      cantidadDeOrdenes: 0,
-      ordenEnProceso: false,
-      destacado: false,
-      fechaEntrega: "15-05-2020",
-      horaEntrega: "15:30",
-    },
-    {
-      image: placeholder,
-      nombre: "Huargantia 50",
-      id: 5,
-      direccion: "Yaiman 72",
-      telefono: 8746932158,
-      insumos: ["perro", "caca", "gatos"],
-      completado: false,
-      precio: 150.0,
-      cantidadDeOrdenes: 0,
-      destacado: false,
-      ordenEnProceso: false,
-      fechaEntrega: "18-05-2020",
-      horaEntrega: "16:30",
     },
   ],
 };
@@ -114,6 +110,8 @@ export const ClientesReducer = (state = initialState, action) => {
       let nuevaClientela = state.clientes.filter((c) => c.id !== idDeCliente);
       return { ...state, clientes: nuevaClientela };
     case ActionTypes.AÑADIR_ORDEN:
+      console.log(action.payload);
+      console.log(state.ordenes);
       return {
         ...state,
         ordenes: [...state.ordenes, action.payload],

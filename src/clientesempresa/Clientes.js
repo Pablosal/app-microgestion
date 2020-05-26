@@ -1,12 +1,24 @@
 import React from "react";
 import ClientesEmpresa from "./ClientesEmpresa";
-const Clientes = (props) => {
-  console.log(props.clientes);
-  if (props.clientes.length <= 0) return <h1>No existen Clientes</h1>;
+import { useSelector } from "react-redux";
+import OredenesDeClientes from "./OredenesDeClientes";
+import OrdenFormClienteNuevo from "../formsempresa/OrdenFormClienteNuevo";
+const Clientes = () => {
+  let clientela = useSelector((state) => state.ClientesReducer);
+
+  if (clientela.clientes.length <= 0) return <h1>No existen Clientes</h1>;
   return (
-    <div className="container">
-      <div className="container bg-info ">
-        <h1>Clientes</h1>
+    <div
+      className=""
+      style={{
+        backgroundColor: "#dceff5",
+        height: "100vh",
+        width: "100%",
+        display: "flex",
+      }}
+    >
+      <div className="container ">
+        <h1 style={{ textAlign: "center" }}>Mis Clientes</h1>
         <div
           className="container center-column"
           style={{
@@ -17,12 +29,13 @@ const Clientes = (props) => {
             flexWrap: "wrap",
           }}
         >
-          <ClientesEmpresa cliente={props.clientes[0]} />
-          {/* {props.clientes.map((c) => (
+          {/* <ClientesEmpresa cliente={clientela.clientes[0]} /> */}
+          {clientela.clientes.map((c) => (
             <ClientesEmpresa key={c.id} cliente={c} />
-          ))} */}
+          ))}
         </div>
       </div>
+      <OrdenFormClienteNuevo />
     </div>
   );
 };

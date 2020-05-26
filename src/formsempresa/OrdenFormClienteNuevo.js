@@ -13,8 +13,8 @@ const OrdenFormClienteNuevo = (props) => {
     direccion: "El turdio 555",
     telefono: 582558920,
     pedido: [],
-    fechaEntrega: "2020-05-13",
-    horaEntrega: "12:32",
+    fechaEntrega: "2020-06-06",
+    horaEntrega: "15:30",
   });
   const manejarCambio = (e) => {
     setNuevoCliente({
@@ -38,6 +38,7 @@ const OrdenFormClienteNuevo = (props) => {
       style={{ width: "450px", float: "right" }}
       onSubmit={manejarEnvio}
     >
+      <h3>Añade un nuevo cliente</h3>
       <div className="form-group">
         <label htmlFor="nombre">Nombre</label>
         <input
@@ -70,44 +71,12 @@ const OrdenFormClienteNuevo = (props) => {
             id="telefono"
             type="tel"
             name="telefono"
-            // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             value={nuevoCliente.telefono}
             onChange={manejarCambio}
           />
         </small>
       </div>
 
-      <div className="row ">
-        <div className="col">
-          <div className="form-group">
-            <label htmlFor="FechaEntrega">Fecha Entrega</label>
-            <input
-              className="form-control"
-              name="fechaEntrega"
-              id="FechaEntrega"
-              type="date"
-              min="2018-01-01"
-              value={nuevoCliente.fechaEntrega}
-              onChange={manejarCambio}
-            />
-          </div>
-        </div>
-        <div className="col">
-          <div className="form-group">
-            <label htmlFor="horario">Horario de Entrega</label>
-            <input
-              className="form-control"
-              type="time"
-              id="horario"
-              name="horarioEntrega"
-              min="09:00"
-              max="18:00"
-              value={nuevoCliente.horarioEntrega}
-              onChange={manejarCambio}
-            />
-          </div>
-        </div>
-      </div>
       <input
         type="submit"
         value="Subir Orden"

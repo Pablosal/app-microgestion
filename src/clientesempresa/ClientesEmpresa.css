@@ -3,24 +3,28 @@
   background: #fceeb5;
   font-family: Abel, Arial, Verdana, sans-serif;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 16px;
 }
 .carta_seccion_columna_one {
   display: flex;
-  justify-content: space-evenly;
+  width: 100%;
+  justify-content: space-between;
 }
 .carta-img-side {
-  border-radius: 16px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
   background-color: brown;
   height: 100%;
-  width: 25%;
+  width: 100%;
+
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
+
 .carta-body {
   width: 75%;
   padding: 15px;
@@ -30,7 +34,7 @@
   justify-content: center;
 }
 .carta-titulo {
-  font-size: 4rem;
+  font-size: 1.5rem;
 }
 .control {
   display: flex;
@@ -48,4 +52,7 @@
 }
 .circle {
   border-radius: 50%;
+}
+span {
+  width: 100%;
 }

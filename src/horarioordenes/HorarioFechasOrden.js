@@ -9,9 +9,10 @@ const HorarioFechasOrden = (props) => {
       return "btn-primary";
     }
   };
+  console.log(props.hoy.split(" ").reverse().join());
   return (
-    <div className="container p-3 bg-dark dias-de-ordenes ">
-      {sameDate.nextWeek.map((d) => (
+    <div className="container mt-5 p-3 bg-dark dias-de-ordenes ">
+      {sameDate.week.map((d) => (
         <button
           onClick={() => props.setearFecha(d)}
           key={d}

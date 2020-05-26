@@ -7,6 +7,10 @@ export const eliminarCliente = (clientId) => ({
   type: ActionTypes.ELIMINAR_CLIENTE,
   payload: clientId,
 });
+export const agregarOrden = (orden) => ({
+  type: ActionTypes.AÑADIR_ORDEN,
+  payload: orden,
+});
 export const modificarCliente = (fechas) => ({
   type: ActionTypes.EDITAR_CLIENTE,
   payload: fechas,

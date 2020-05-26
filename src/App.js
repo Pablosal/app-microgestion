@@ -6,29 +6,25 @@ import Orden from "./formsempresa/Orden";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 
-import { useSelector } from "react-redux";
 import Landing from "./loginEmpresa/Landing";
+import PrivateRoute from "./utils/PrivateRoute";
 function App() {
-  let clientela = useSelector((state) => state.ClientesReducer);
-
   return (
     <Router>
       <Navbar></Navbar>
       <Switch>
         <Route exact path="/">
           <Landing />
-          {/* <Orden clientes={clientela.clientes} /> */}
-        </Route>
-        <Route exact path="/ordenes">
-          <Orden clientes={clientela.clientes} />
-        </Route>
-        <Route exact path="/horarioOrden">
-          <HorarioOrden />
         </Route>
 
-        <Route exact path="/clientes">
-          <Clientes clientes={clientela.clientes} />
-        </Route>
+        <PrivateRoute component={Orden} exact path="/ordenes" />
+        <PrivateRoute component={HorarioOrden} exact path="/horarioOrden" />
+
+        <PrivateRoute
+          component={Clientes}
+          exact
+          path="/clientes"
+        ></PrivateRoute>
       </Switch>
     </Router>
   );

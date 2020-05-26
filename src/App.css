@@ -1,3 +1,6 @@
+html {
+  background-color: #dceff5;
+}
 .center {
   display: flex;
   justify-content: center;

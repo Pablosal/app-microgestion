@@ -3,13 +3,14 @@ import { useDispatch } from "react-redux";
 import { eliminarCliente, modificarCliente } from "./ClientesActions";
 import "./ClientesEmpresa.css";
 import Gravatar from "react-gravatar";
+import { v4 as uuidv4 } from "uuid";
 const ClientesEmpresa = ({ cliente }) => {
   const dispatch = useDispatch();
   const [enEdicion, setEnEdicion] = useState(false);
   const [informacion, setInformacion] = useState({
     direccion: "",
     telefono: 0,
-    id: "",
+    id: uuidv4(),
   });
 
   const handleChange = (e) => {
@@ -23,27 +24,27 @@ const ClientesEmpresa = ({ cliente }) => {
     <div
       className="carta m-2"
       style={{
-        width: "600px",
-        maxHeight: "500px",
-        height: "350px",
+        height: "500px",
+        width: "300px",
       }}
     >
       <div className="carta-img-side">
         <Gravatar email={`${cliente.nombre}@gmail.com`} size={120} />
+        <i
+          className=" btn far fa-edit fa-2x"
+          style={{ color: "white" }}
+          onClick={() => {
+            setEnEdicion(!enEdicion);
+            console.log(enEdicion);
+          }}
+        ></i>
       </div>
       <div className="carta-body">
-        <div className="d-flex flex-row justify-content-around align-items-center">
+        <div className="">
           <h4 className="carta-titulo">{cliente.nombre}</h4>
-          <i
-            className=" btn far fa-edit fa-2x"
-            onClick={() => {
-              setEnEdicion(!enEdicion);
-              console.log(enEdicion);
-            }}
-          ></i>
         </div>
         <div className="carta_seccion_columna_one">
-          <div className="control m-2">
+          <div className="control">
             <h5 className="card-title">Direccion </h5>
             <i className="fas fa-house-user fa-2x"></i>
             {enEdicion ? (
@@ -56,11 +57,11 @@ const ClientesEmpresa = ({ cliente }) => {
               />
             ) : (
               <h6 className="card-subtitle mb-2 text-muted">
-                {cliente.direccion}
+                <strong>{cliente.direccion}</strong>
               </h6>
             )}
           </div>
-          <div className="control m-2">
+          <div className="control ">
             <h5 className="card-title">Telefono</h5>
             <i className="fas fa-mobile-alt fa-2x"></i>
             {enEdicion ? (

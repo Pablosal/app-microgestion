@@ -13,12 +13,16 @@ const HorarioOrden = () => {
     setMismoDia(fecha);
   };
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center">
+    <div
+      className="d-flex flex-column justify-content-center align-items-center"
+      style={{
+        backgroundColor: "#DCEFF5",
+        height: "100vh",
+      }}
+    >
       <HorarioFechasOrden hoy={mismoDia} setearFecha={setearFecha} />
       <HorarioDeEMpresaHoras
-        clientes={data.clientes.filter(
-          (c) => c.fechaEntrega === mismoDia.split("-").reverse().join("-")
-        )}
+        clientes={data.ordenes.filter((c) => c.fechaEntrega === mismoDia)}
       />
     </div>
   );
