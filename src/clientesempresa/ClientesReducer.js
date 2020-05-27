@@ -18,38 +18,6 @@ let initialState = {
       direccion: "El gatornio 960",
       telefono: 874859635,
     },
-    {
-      image: placeholder,
-      nombre: "Dominico Eliaz",
-      id: 1,
-      direccion: "pinagua 890",
-      telefono: 998074590,
-
-      destacado: false,
-    },
-    {
-      image: placeholder,
-      nombre: "Eliaz Figeroa",
-      id: 2,
-      direccion: "El gatornio 960",
-      telefono: 874859635,
-    },
-    {
-      image: placeholder,
-      nombre: "Dominico Eliaz",
-      id: 1,
-      direccion: "pinagua 890",
-      telefono: 998074590,
-
-      destacado: false,
-    },
-    {
-      image: placeholder,
-      nombre: "Eliaz Figeroa",
-      id: 2,
-      direccion: "El gatornio 960",
-      telefono: 874859635,
-    },
   ],
   ordenes: [
     {

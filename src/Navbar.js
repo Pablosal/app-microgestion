@@ -2,13 +2,12 @@ import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 const Navbar = () => {
   let par = useLocation();
-  console.log(par.pathname);
 
   const backgroundChange = () => {
     if (par.pathname === "/") {
-      return "transparent";
+      return "#DCEFF5";
     } else {
-      return "red";
+      return "#DCEFF5";
     }
   };
   return (

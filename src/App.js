@@ -10,23 +10,25 @@ import Landing from "./loginEmpresa/Landing";
 import PrivateRoute from "./utils/PrivateRoute";
 function App() {
   return (
-    <Router>
-      <Navbar></Navbar>
-      <Switch>
-        <Route exact path="/">
-          <Landing />
-        </Route>
+    <div style={{ backgroundColor: "#DCEFF5" }}>
+      <Router>
+        <Navbar></Navbar>
+        <Switch>
+          <Route exact path="/">
+            <Landing />
+          </Route>
 
-        <PrivateRoute component={Orden} exact path="/ordenes" />
-        <PrivateRoute component={HorarioOrden} exact path="/horarioOrden" />
+          <PrivateRoute component={Orden} exact path="/ordenes" />
+          <PrivateRoute component={HorarioOrden} exact path="/horarioOrden" />
 
-        <PrivateRoute
-          component={Clientes}
-          exact
-          path="/clientes"
-        ></PrivateRoute>
-      </Switch>
-    </Router>
+          <PrivateRoute
+            component={Clientes}
+            exact
+            path="/clientes"
+          ></PrivateRoute>
+        </Switch>
+      </Router>
+    </div>
   );
 }
 

@@ -8,7 +8,6 @@ const OredenesDeClientes = (props) => {
           <th scope="col">Nombre</th>
           <th scope="col">Fecha</th>
           <th scope="col">Hora</th>
-          <th scope="col">Precio</th>
         </tr>
       </thead>
       <tbody>
@@ -18,7 +17,6 @@ const OredenesDeClientes = (props) => {
             <td>{o.nombre}</td>
             <td>{o.fechaEntrega}</td>
             <td>{o.horaEntrega}</td>
-            <td>{o.precio}</td>
           </tr>
         ))}
       </tbody>

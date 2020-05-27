@@ -1,14 +1,10 @@
-import React, { useState } from "react";
-import OrdenFormClienteNuevo from "./OrdenFormClienteNuevo";
+import React from "react";
 import OrdenFormClienteViejo from "./OrdenFormClienteViejo";
 import { useSelector } from "react-redux";
 import OredenesDeClientes from "../clientesempresa/OredenesDeClientes";
-import MiniLogin from "../loginEmpresa/MiniLogin";
 
-const Orden = (props) => {
+const Orden = () => {
   let clientela = useSelector((state) => state.ClientesReducer);
-
-  const [cliente, setCliente] = useState(true);
   return (
     <div
       className=" p-3 "
@@ -21,7 +17,6 @@ const Orden = (props) => {
         height: "100vh",
       }}
     >
-      <MiniLogin />
       <div
         style={{
           display: "flex",

@@ -6,13 +6,13 @@ const OrdenFormClienteNuevo = (props) => {
   const dispatch = useDispatch();
   const instrumentaria = useSelector((state) => state.EmpresaReducer)
     .instrumentaria;
-  console.log(instrumentaria);
+
   const [nuevoCliente, setNuevoCliente] = useState({
     id: uuidv4(),
     nombre: "Zacarias Dominguez",
     direccion: "El turdio 555",
     telefono: 582558920,
-    pedido: [],
+    precio: "",
     fechaEntrega: "2020-06-06",
     horaEntrega: "15:30",
   });
